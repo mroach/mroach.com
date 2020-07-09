@@ -11,15 +11,22 @@ SIZES := 16 32 48 64
 # create a list of targets from sizes. e.g. 64 => favicon-64.ico
 favicon-targets = $(addsuffix .ico, $(addprefix favicon-, $(SIZES)))
 
-# size is the wildcard. set the SIZE var based on its value
-favicon-%.ico:
-	$(eval SIZE := $*)
+all: static/favicon.ico static/apple-touch-icon.png
+
+icon/%:
 	convert -size $(SIZE)x$(SIZE) \
 		xc:$(MAIN_FILL) \
 		-fill "$(RECT_FILL)" \
 		-draw "rectangle 0,$(OFFSET_Y), $(SIZE),$(SIZE)" \
-		favicon-$(SIZE).ico
+		$*
+
+# size is the wildcard. set the SIZE var based on its value
+favicon-%.ico:
+	$(MAKE) icon/$(@F) SIZE=$*
 
 static/favicon.ico: $(favicon-targets)
 	convert $(favicon-targets) static/favicon.ico
 	rm $(favicon-targets)
+
+static/apple-touch-icon.png:
+	$(MAKE) icon/static/apple-touch-icon.png SIZE=180
