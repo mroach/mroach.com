@@ -147,10 +147,10 @@ DOCKER_TAG := newsie_elixir_$(ELIXIR_VER)
 .PHONY: docker/build docker/test docker/iex
 
 docker/build:
-	docker build --tag $(DOCKER_TAG) --build-arg elixir_ver=$(ELIXIR_VER) .
+  docker build --tag $(DOCKER_TAG) --build-arg elixir_ver=$(ELIXIR_VER) .
 
 docker/test: docker/build
-	docker run --rm -v $(PWD):/opt/code $(DOCKER_TAG) mix test
+  docker run --rm -v $(PWD):/opt/code $(DOCKER_TAG) mix test
 
 docker/iex: docker/build
   docker run --rm -it -v $(PWD):/opt/code $(DOCKER_TAG) iex -S mix
