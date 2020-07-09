@@ -125,9 +125,7 @@ but they are not what you set out to do and they wreak havoc with your estimates
 
 This clip from Malcolm in the Middle is textbook yak shaving:
 
-<div style="text-align: center; margin: 20px auto">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/8fnfeuoh4s8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+{{< youtube "8fnfeuoh4s8" >}}
 
 There's no cut-and-dry answer to it. I usually allow myself to do a little bit of
 yak shaving, get on with the task at hand, and create issues/tasks to follow-up
