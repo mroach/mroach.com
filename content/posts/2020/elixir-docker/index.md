@@ -84,7 +84,7 @@ end
 
 ### Compiling in the image
 
-For quick startup of your app, tests, or iex, pre-compile the dependencies. This requires that app configuration be present along with the `mix.exs` and `mix.lock` files.
+For quick startup of your app, tests, or iex: pre-compile the dependencies. This requires that app configuration be present along with the `mix.exs` and `mix.lock` files.
 
 If you're only going to be running tests in the image, consider setting `MIX_ENV=test` and only fetching dependencies for this environment.
 
@@ -142,7 +142,7 @@ Taking the example of a paramaterized `Dockerfile` for testing against multiple 
 
 ```makefile
 ELIXIR_VER := 1.10
-DOCKER_TAG := newsie_elixir_$(ELIXIR_VER)
+DOCKER_TAG := myapp_elixir_$(ELIXIR_VER)
 
 .PHONY: docker/build docker/test docker/iex
 
@@ -156,7 +156,7 @@ docker/iex: docker/build
   docker run --rm -it -v $(PWD):/opt/code $(DOCKER_TAG) iex -S mix
 ```
 
-Now to build the base image and run your unit tests, a developer needs to just run:
+Now to build the base image and run your unit tests, a developer just needs to run:
 
 ```shell
 make docker/test
