@@ -27,6 +27,8 @@ params:
   dateFormat: "2006-01-02"
   pager: true
   readmore: true
+  opengraph: true
+  twitter_cards: true
   highlightColor: "rgb(58,110,165)"
   post_meta:
     - date
