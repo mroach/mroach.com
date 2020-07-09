@@ -1,0 +1,55 @@
+---
+baseURL: "http://mroach.com/"
+languageCode: "en-us"
+defaultContentLanguage: "en"
+title: "Michael Roach"
+theme: "mainroad"
+
+permalinks:
+  posts: /:year/:month/:title/
+
+author:
+  name: Michael Roach
+  avatar: "images/me-sticker.png"
+
+markup:
+  defaultMarkdownHandler: goldmark
+  goldmark:
+    renderer:
+      unsafe: true
+      xhtml: true
+  highlight:
+    style: "friendly"
+    lineNos: false
+
+params:
+  description: "Software, tech, food."
+  dateFormat: "2006-01-02"
+  pager: true
+  readmore: true
+  highlightColor: "rgb(58,110,165)"
+  post_meta:
+    - date
+    - categories
+
+  logo:
+    image: images/me-sticker.png
+    title: Michael Roach
+    subtitle: |
+      Technology. Software. Food. Scuba diving.
+
+  widgets:
+    social:
+      github: mroach
+      twitter: mroach
+      linkedin: mfroach
+      email: web@c.mroach.com
+
+  sidebar:
+    home: right
+    list: right
+    single: false
+    widgets:
+      - social
+      - categories
+      - taglist
