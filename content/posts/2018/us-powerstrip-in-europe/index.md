@@ -2,13 +2,12 @@
 date: 2018-04-09T00:00:00Z
 title: "Power strip mod for US plugs in Europe"
 categories:
-  - diy
-  - mods
+  - DIY
+  - Mods
 tags:
-  - electronics
-  - plugs
-  - international
-  - mods
+  - Electronics
+  - Plugs
+  - Mods
 aliases:
   - /2018/04/09/mod-powerstrip-us-plugs-in-europe/
 ---

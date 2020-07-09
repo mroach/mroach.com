@@ -2,10 +2,11 @@
 date: 2013-11-28T00:00:00Z
 title: Mossy is Born!
 categories:
-  - tech
+  - Tech
 tags:
-  - ruby
-  - sql server
+  - Ruby
+  - SQL Server
+  - Open Source
 aliases:
   - /2013/11/28/mossy-is-born/
 ---

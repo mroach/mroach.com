@@ -2,11 +2,10 @@
 date: 2019-02-03T00:00:00Z
 title: Back to Linux
 categories:
-  - tech
+  - Tech
 tags:
-  - pc
-  - linux
-  - arch
+  - Linux
+  - Arch Linux
 aliases:
   - /2019/02/03/back-to-linux/
 ---

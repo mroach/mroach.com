@@ -2,13 +2,13 @@
 date: 2018-07-31T00:00:00Z
 title: "Keeping track of Magic Trackpad 2 battery life"
 categories:
-  - code
+  - Tech
 tags:
- - electronics
- - utilities
- - scripts
- - macos
- - apple
+ - Electronics
+ - Utilities
+ - Scripts
+ - macOS
+ - Apple
 aliases:
   - /2018/07/31/log-magic-trackpad-battery/
 ---

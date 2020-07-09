@@ -2,14 +2,13 @@
 date: 2018-08-28T00:00:00Z
 title: Triple-booting Windows 98, NT 4, and 2000
 categories:
-  - retro
+  - Tech
+  - Retro
+  - Guides
 tags:
- - retro
- - dell
- - pc
- - hardware
- - windows
- - howto
+  - Retro
+  - Dell
+  - Windows
 aliases:
   - /2018/08/28/triple-boot-windows-nt-98-2000/
 ---

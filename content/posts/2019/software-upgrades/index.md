@@ -2,10 +2,12 @@
 date: 2019-03-28T00:00:00Z
 title: Upgrades and dot-zero versions
 categories:
-  - thoughts-on-tech
+  - Tech
+  - Opinion
+  - Software
 tags:
-  - software
-  - opinion
+  - Software
+  - Versioning
 aliases:
   - /2019/03/28/thoughts-on-upgrades/
 ---

@@ -3,13 +3,14 @@ title: "Elixir development with Docker"
 date: 2020-07-07T15:40:51-04:00
 draft: false
 categories:
-  - tech
-  - guides
+  - Tech
+  - Software
+  - Guides
 tags:
-  - software
-  - development
-  - docker
-  - elixir
+  - Software
+  - Development
+  - Docker
+  - Elixir
 author: mroach
 ---
 

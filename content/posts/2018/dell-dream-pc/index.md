@@ -2,13 +2,12 @@
 date: 2018-04-05T00:00:00Z
 title: "Dream PC: Dell Dimension XPS T450 - 1999 Glory (Part 1)"
 categories:
-  - retro
-  - personal
+  - Tech
+  - Retro
 tags:
-  - retro
-  - dell
-  - pc
-  - hardware
+  - Retro
+  - Dell
+  - Hardware
 aliases:
   - /2018/04/05/dream-pc-dell-dimension-xps-t450-part-1/
 ---

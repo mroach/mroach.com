@@ -2,9 +2,11 @@
 date: 2019-03-12T00:00:00Z
 title: "Reducing Raspberry Pi power consumption"
 categories:
-  - tech
+  - Tech
+  - Hardware
 tags:
-  - raspberry-pi
+  - Raspberry Pi
+  - USB
 aliases:
   - /2019/03/12/reduce-raspberry-pi-power-consumption/
 ---

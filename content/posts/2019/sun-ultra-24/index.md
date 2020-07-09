@@ -2,9 +2,10 @@
 date: 2019-09-16T00:00:00Z
 title: Sun Ultra 24
 categories:
-  - tech
+  - Tech
+  - Hardware
 tags:
-  - sun microsystems
+  - Sun Microsystems
 draft: false
 aliases:
   - /2019/09/16/sun-ultra-24/

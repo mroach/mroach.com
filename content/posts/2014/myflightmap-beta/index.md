@@ -2,7 +2,8 @@
 date: 2014-11-15T00:00:00Z
 title: My Flight Map v2.0 Beta
 categories:
-  - announcements
+  - Tech
+  - Announcements
 tags:
   - myflightmap
 aliases:

@@ -2,10 +2,11 @@
 date: 2016-09-27T00:00:00Z
 title: Generating openssl certificate non-interactively
 categories:
-  - tech
-  - cheatsheet
+  - Tech
+  - Cheatsheets
+  - Guides
 tags:
-  - openssl
+  - OpenSSL
 aliases:
   - /2016/09/27/openssl-noninteractive/
 ---

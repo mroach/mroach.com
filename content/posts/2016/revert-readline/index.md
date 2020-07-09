@@ -2,11 +2,12 @@
 date: 2016-09-29T00:00:00Z
 title: Reverting to Readline 6.3.8 to unbreak the Rails console
 categories:
-  - tech
+  - Tech
+  - Guides
 tags:
-  - ruby
-  - macos
-  - homebrew
+  - Ruby
+  - macOS
+  - Homebrew
 aliases:
   - /2016/09/29/revert-to-readline-6/
 ---

@@ -2,7 +2,9 @@
 date: 2019-05-14T00:00:00Z
 title: Spec'ing out a Blackbird POWER9
 categories:
-  - tech
+  - Tech
+tags:
+  - POWER ISA
 aliases:
   - /2019/05/14/blackbird-power9/
 ---

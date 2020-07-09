@@ -2,11 +2,12 @@
 date: 2018-03-30T00:00:00Z
 title: Active Directory, DNS, and a Ubiquiti EdgeRouter
 categories:
-  - guides
+  - Tech
+  - Guides
 tags:
-  - ubiquiti
-  - active directory
-  - dns
+  - Ubiquiti
+  - Active Directory
+  - DNS
 aliases:
   - /2018/03/30/active-directory-dns-ubiquiti-edgerouter/
 ---

@@ -2,9 +2,9 @@
 date: 2011-11-01T00:00:00Z
 title: Gardener for Visual Studio
 categories:
-  - tech
+  - Tech
 tags:
-  - visual studio
+  - Visual Studio
 aliases:
   - /2011/11/01/gardener-for-visual-studio/
 ---

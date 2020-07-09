@@ -3,10 +3,10 @@ date: 2019-04-11T00:00:00Z
 layout: post
 title: Developer idioms
 categories:
-  - fun
+  - Fun
 tags:
-  - speech
-  - language
+  - Speech
+  - Language
 aliases:
   - /2019/04/11/idioms/
 ---

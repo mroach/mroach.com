@@ -2,11 +2,12 @@
 date: 2013-12-06T00:00:00Z
 title: RollbarSharp updated to 0.3.0
 categories:
-  - code
-  - opensource
+  - Tech
+  - Software
 tags:
-  - dotnet
-  - rollbar
+  - .NET
+  - Rollbar
+  - Open Source
 aliases:
   - /2013/12/06/rollbarsharp-updated-to-0.3.0/
 ---

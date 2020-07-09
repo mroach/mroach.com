@@ -2,10 +2,11 @@
 date: 2019-02-12T00:00:00Z
 title: "Cleaning-up your commit history with git --fixup"
 categories:
-  - tech
+  - Tech
+  - Guide
 tags:
-  - git
-  - development
+  - Git
+  - Development
 aliases:
   - /2019/02/12/git-fixup/
 ---
