@@ -119,6 +119,6 @@ I uploaded it to archive.org so it may live on forever:
 
 Eventually the dated hardware will no longer be useful. I love the case, and
 since it's ATX, the upgrade options are plentiful. I'm considering building
-[Raptor Blackbird POWER9]({% post_url 2019-05-14-blackbird-power9 %}) workstation
+[Raptor Blackbird POWER9]({{< ref "blackbird-power9" >}}) workstation
 and I'd do that in this case. Since the firmware is open, you can easily
 customise things like the boot logo so I could even make it look similar!
