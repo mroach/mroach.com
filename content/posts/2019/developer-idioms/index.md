@@ -7,6 +7,8 @@ categories:
 tags:
   - speech
   - language
+aliases:
+  - /2019/04/11/idioms/
 ---
 
 Whenever I approach a new spoken language, I'm drawn to their idioms.

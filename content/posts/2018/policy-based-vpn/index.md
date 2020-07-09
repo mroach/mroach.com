@@ -4,10 +4,12 @@ title: Policy-based routing over VPN with Ubiquiti EdgeRouter
 categories:
   - guides
 tags:
- - ubiquiti
- - vpn
- - privacy
- - security
+  - ubiquiti
+  - vpn
+  - privacy
+  - security
+aliases:
+  - /2018/03/24/ubiquiti-policy-based-routing-vpn/
 ---
 
 {{< figure src="images/er-x.png" alt="Edgerouter X" >}}

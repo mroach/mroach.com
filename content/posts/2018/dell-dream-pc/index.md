@@ -5,10 +5,12 @@ categories:
   - retro
   - personal
 tags:
- - retro
- - dell
- - pc
- - hardware
+  - retro
+  - dell
+  - pc
+  - hardware
+aliases:
+  - /2018/04/05/dream-pc-dell-dimension-xps-t450-part-1/
 ---
 
 {{< figure src="images/dell_xps_t_ad.jpg" alt="Dell XPS T-Series Advert" >}}

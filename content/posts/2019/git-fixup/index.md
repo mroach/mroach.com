@@ -6,6 +6,8 @@ categories:
 tags:
   - git
   - development
+aliases:
+  - /2019/02/12/git-fixup/
 ---
 
 I like to keep my git commit history clean and concise. If each commit is a clean package of atomic changes, a larger pull request is easier to review commit by commit. Conversely, if you have a history littered with fixes and changes, reviewing each commit doesn't work.

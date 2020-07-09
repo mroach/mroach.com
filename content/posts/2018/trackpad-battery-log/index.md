@@ -9,6 +9,8 @@ tags:
  - scripts
  - macos
  - apple
+aliases:
+  - /2018/07/31/log-magic-trackpad-battery/
 ---
 
 Fetching the **Magic Trackpad 2** battery level from the command line and logging it to a file!

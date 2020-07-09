@@ -7,6 +7,8 @@ tags:
   - pc
   - linux
   - arch
+aliases:
+  - /2019/02/03/back-to-linux/
 ---
 
 {{< figure src="images/arch-neofetch.png" title="board" >}}

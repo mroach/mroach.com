@@ -6,6 +6,8 @@ categories:
 tags:
   - software
   - opinion
+aliases:
+  - /2019/03/28/thoughts-on-upgrades/
 ---
 
 In my early days with software, I couldn't wait to upgrade to the latest versions of everything. Service Packs, patches, major new versions. I wanted to be running the latest and greatest versions of every piece of software I could on day zero.

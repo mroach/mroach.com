@@ -6,9 +6,8 @@ categories:
 tags:
   - sun microsystems
 draft: false
-resources:
-  - src: images/sun_ultra_24.jpg
-    title: "Sun Ultra 24"
+aliases:
+  - /2019/09/16/sun-ultra-24/
 ---
 
 My favourite workstation is the Ultra 24 by Sun Microsystems.

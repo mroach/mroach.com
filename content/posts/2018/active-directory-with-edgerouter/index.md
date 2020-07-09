@@ -4,9 +4,11 @@ title: Active Directory, DNS, and a Ubiquiti EdgeRouter
 categories:
   - guides
 tags:
- - ubiquiti
- - active directory
- - dns
+  - ubiquiti
+  - active directory
+  - dns
+aliases:
+  - /2018/03/30/active-directory-dns-ubiquiti-edgerouter/
 ---
 
 You've got a Ubiquiti EdgeRouter and an Active Directory domain. Here's how you make them play nicely together.

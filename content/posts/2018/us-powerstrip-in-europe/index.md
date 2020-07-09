@@ -5,10 +5,12 @@ categories:
   - diy
   - mods
 tags:
- - electronics
- - plugs
- - international
- - mods
+  - electronics
+  - plugs
+  - international
+  - mods
+aliases:
+  - /2018/04/09/mod-powerstrip-us-plugs-in-europe/
 ---
 
 {{< figure src="images/uk_shaver_nema.jpg" alt="Chopped-off UK shaver and NEMA plugs" >}}

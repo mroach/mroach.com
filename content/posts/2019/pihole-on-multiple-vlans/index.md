@@ -7,6 +7,8 @@ tags:
   - raspberry-pi
   - pihole
   - networking
+aliases:
+  - /2019/11/28/pihole-on-multiple-vlans/
 ---
 
 Pi-hole has been working like a charm on my network for years blocking ads.

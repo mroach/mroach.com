@@ -10,6 +10,8 @@ tags:
  - hardware
  - windows
  - howto
+aliases:
+  - /2018/08/28/triple-boot-windows-nt-98-2000/
 ---
 
 {{< figure src="images/dell_triple_boot.jpg" alt="Windows OS selection" >}}

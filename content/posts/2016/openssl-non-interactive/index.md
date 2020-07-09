@@ -6,6 +6,8 @@ categories:
   - cheatsheet
 tags:
   - openssl
+aliases:
+  - /2016/09/27/openssl-noninteractive/
 ---
 
 Using `openssl` with the `--subject` argument allows you to generate certificates

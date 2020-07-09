@@ -5,6 +5,8 @@ categories:
   - tech
 tags:
   - raspberry-pi
+aliases:
+  - /2019/03/12/reduce-raspberry-pi-power-consumption/
 ---
 
 {{< figure src="images/rpi-power.png" title="USB Power Meter" >}}

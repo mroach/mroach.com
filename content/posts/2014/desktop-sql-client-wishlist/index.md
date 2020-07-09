@@ -1,6 +1,8 @@
 ---
 date: 2014-12-14T00:00:00Z
 title: Wishlist for desktop SQL query client
+aliases:
+  - /2014/12/14/desktop-sql-client-wishlist/
 ---
 
 Say what you will about Microsoft SQL Server Management studio, but the query

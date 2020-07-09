@@ -7,6 +7,8 @@ categories:
 tags:
   - dotnet
   - rollbar
+aliases:
+  - /2013/12/06/rollbarsharp-updated-to-0.3.0/
 ---
 
 The new release adds two bits of missing functionality.

@@ -7,6 +7,8 @@ tags:
   - ruby
   - macos
   - homebrew
+aliases:
+  - /2016/09/29/revert-to-readline-6/
 ---
 
 When running a `brew upgrade`, it upgraded `readline` to version 7.0. This
