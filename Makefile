@@ -11,7 +11,12 @@ SIZES := 16 32 48 64
 # create a list of targets from sizes. e.g. 64 => favicon-64.ico
 favicon-targets = $(addsuffix .ico, $(addprefix favicon-, $(SIZES)))
 
-all: static/favicon.ico static/apple-touch-icon.png
+all: static/favicon.iconstatic/apple-touch-icon.png
+
+clean:
+	-rm static/favicon.ico
+	-rm static/apple-touch-icon.png
+	-rm $(favicon-targets)
 
 icon/%:
 	convert -size $(SIZE)x$(SIZE) \
