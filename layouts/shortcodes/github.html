@@ -1,0 +1,9 @@
+{{ $org_repo := .Get 0 }}
+{{ $parts := split $org_repo "/" }}
+{{ $org := index $parts 0  }}
+{{ $repo := index $parts 1 }}
+<span class="github-repo-link">
+  <a href="https://github.com/{{ $org_repo }}" title="View {{ $org_repo }} on GitHub" target="_blank">
+    <span>{{ $repo }}</span>
+  </a>
+</span>
