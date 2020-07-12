@@ -9,19 +9,6 @@ tags:
   - Elixir
 ---
 
-<!--
-* intro
-  * what we're doing
-  * how we're doing it
-* intro to list comprehensions
-  * transform and filter a list to create a new one
-  * show example and compare to using pipes
-* intro to elixir compile-time code
-  * elixir is compiled
-  * code outside of functions is evaluated as compile time
-* putting it together
--->
-
 A common requirement in software is to have a static data resource in your application or library. These are typically resources that changes so infrequently that releasing a new version for a data change is fine. Of course you can build these data by hand, but this is error-prone and makes rebuilding the static data more labour intensive. These problems are exacerbated by larger data sets. As good lazy (i.e. efficient) developers we can use code to solve these problems.
 
 While developing {{< github "mroach/newsie" >}} I needed a list of countries and languages with their ISO codes. To satisfy my aversion to dependency creep, I built a module each for these languages and countries.
@@ -192,7 +179,9 @@ This gets the job done and depending on your tastes, may be a preferable style. 
 
 The objective here was to generate *static* data. If this comprehension or pipeline were invoked at runtime, it wouldn't really be static since the result would depend on the file which could change. Even if it didn't change, it would be a lot of unnecessary re-processing.
 
-To cement the data into code, it can be evaluated at compile time and its result assigned to a module attribute. You can even get into meta programming and define functions that return the language name based on its code.
+To cement the data into code, it can be evaluated at compile time and its result assigned to a module attribute.
+
+We also use some metaprogramming to define the `get_lang_name/1` function. More on that in the next post, [improving static data access with metaprogramming]({{< ref "elixir-performance-metaprogramming" >}}).
 
 ```elixir
 defmodule MyApp.Languages do
