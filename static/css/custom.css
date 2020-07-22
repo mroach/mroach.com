@@ -1,0 +1,15 @@
+figure.thumb {
+  padding: 0.75em;
+  border: solid 1px #eee;
+}
+
+figure.float-right {
+  float: right;
+  margin: 0 0 1em 1em;
+}
+
+figcaption > p:only-child { margin: 0 }
+
+figcaption {
+  font-size: 0.9em;
+}

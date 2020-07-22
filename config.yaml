@@ -33,6 +33,8 @@ params:
   post_meta:
     - date
     - categories
+  customCSS:
+    - "css/custom.css"
 
   logo:
     image: images/me-sticker.png
