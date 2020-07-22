@@ -2,7 +2,7 @@
 title: "Generating static data with Elixir comprehensions"
 date: 2020-07-11T00:00:00Z
 draft: false
-category:
+categories:
   - Tech
   - Code
 tags:

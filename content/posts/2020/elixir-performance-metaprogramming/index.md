@@ -2,7 +2,7 @@
 title: "Improving static data performance with metaprogramming"
 date: 2020-07-12T00:00:00Z
 draft: false
-category:
+categories:
   - Tech
   - Code
 tags:
