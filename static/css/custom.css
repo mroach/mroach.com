@@ -13,3 +13,11 @@ figcaption > p:only-child { margin: 0 }
 figcaption {
   font-size: 0.9em;
 }
+
+.inline-items {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
