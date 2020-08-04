@@ -47,7 +47,7 @@ Since cloudflared is now a dependency of Pi-hole in our setup, we'll use [docker
 
 {{< figure src="images/docker-logo.png" class="float-right" thumb="150" >}}
 
-Users are Docker are probably familiar with the concept of publishing ports. A port on the container can be published to a port on the host when using `docker run` or in a docker-compose configuration.
+Docker users are probably familiar with the concept of publishing ports. A port on the container can be published to a port on the host when using `docker run` or in a docker-compose configuration.
 
 ```shell
 docker run --rm -p 80:80 nginx
