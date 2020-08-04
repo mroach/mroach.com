@@ -19,7 +19,8 @@ In this guide we'll setup cloudflare and Pi-hole together with docker-compose to
 
 <!--more-->
 
-## Pi-hole
+Pi-hole
+-------
 
 By now many are familiar with [Pi-hole]. It's a DNS server that subscribes to blocklists to block advertising and tracking services at the network level. So when a browser tries to resolve `ads.doubleclick.net`, Pi-hole says: "nope, doesn't exist".
 
@@ -55,11 +56,13 @@ docker run --rm -p 80:80 nginx
 
 Now we could visit http://localhost or another user on the network can visit http://machine-ip-or-hostname.
 
-The problem here is that now the service is tied to the IP address of the Docker host. It also means only one service per port. For HTTP, it's not a big deal to use other ports, like `8080`. This is a problem though with DNS since DNS has to be responding on port `53`.
+The problem here is that now the service is tied to the IP address of the Docker host. It also means only one service per port per Docker host. For HTTP, it's not a big deal to use other ports, like `8080`. This is a problem though with DNS since DNS has to be responding on port `53`.
 
 With [macvlan], Docker can create a new network that generates MAC addresses for containers and lets them have routable IPs on our LAN. If we wanted to, we could have multiple Pi-hole instances running on the same machine, each with its own IP listening on port `53`.
 
-In the examples to follow, we'll say our real network is `10.65.2.0/24` and our router is `10.65.2.1`. We can inform Docker of this topology in a network called `priv_lan` that the host is connected to on interface `eth0`. We'll create it by hand so that this network is usable by any docker-compose setup and not just the one we'll create later:
+In the examples to follow, we'll say our real network is `10.65.2.0/24` and our router is `10.65.2.1`. We can inform Docker of this topology in a network called `priv_lan` that the host is connected to on interface `eth0`.
+
+We'll create it by hand so that this network is usable by any docker-compose setup and not just the one we'll create later:
 
 ```shell
 docker network create -d macvlan \
@@ -84,7 +87,9 @@ They both follow the convention of `http://<ip>/dns-query` for the lookup URL.
 
 [Quad9 DoH]: https://www.quad9.net/doh-quad9-dns-servers/
 
-## Option 1: Hidden cloudflared
+
+Option 1: Hidden cloudflared
+----------------------------
 
 ### Internal network
 
@@ -101,8 +106,6 @@ This internal network will be `172.30.9.0/29`. The `/29` netmask provides 5 usab
 Pi-hole is assigned the IP `172.30.9.2` on our internal network and gets attached to the real network with the IP `10.65.2.4`.
 
 Pi-hole is configured to use the internal cloudflared as the exclusive DNS server.
-
-
 
 ### `pihole-compose.yml`
 
@@ -222,7 +225,9 @@ mroach.com.		300	IN	A	104.28.14.90
 
 Looks good!
 
-## Option 2: Direct attach
+
+Option 2: Attach cloudflared to the LAN
+---------------------------------------
 
 Another option is to skip using the `internal` network and instead directly attach cloudflared to our real network. By doing this, we gain the ability to bypass Pi-hole if desired and still have the benefits of DNS over HTTPS. We also get access to the Prometheus metrics published by cloudflared.
 
@@ -318,13 +323,17 @@ And check that Prometheus metrics are working:
 curl http://10.65.2.14:49312/metrics
 ```
 
-## Next steps
+
+Next steps
+----------
 
 This setup provides a portable Pi-hole with DNS over HTTPS configuration. For higher availability on a LAN, the setup could be deployed to multiple Docker hosts and the IPs of the Pi-hole servers added to the DHCP configuration on the LAN.
 
-### Config sync
+### Configuration sync
 
-If any manual configuration is done to Pi-hole, that should probably be shared or synchronised between Pi-hole servers in a way that doesn't add points of failure (e.g. mounted share on a NAS).
+If any manual configuration is done to Pi-hole, that should probably be shared or synchronised between Pi-hole servers in a way that doesn't add points of failure (e.g. mounted share on a NAS). Deploying configuration with something like [Ansible] could be a good solution.
+
+[Ansible]: https://www.ansible.com
 
 ### Blocking rogue DNS
 
@@ -336,7 +345,14 @@ Pi-hole works by subscribing to various blocklists. There may be enhanced blockl
 
 You can also add custom blocklist rules. I added some to stop ads showing up on my LG smart TV.
 
-## Conclusion
+
+### Joining VLANs
+
+If you use VLANs on your network, `macvlan` supports binding to VLAN tagging. The [macvlan] documentation shows how.
+
+
+Conclusion
+----------
 
 Pi-hole with cloudflared provides a powerful security and privacy enhancement to any network. Setting it up with docker-compose makes the setup portable.
 
