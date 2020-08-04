@@ -1,11 +1,11 @@
 ---
 date: 2019-11-28T00:00:00+00:00
-title: "Using PiHole on multiple VLANs"
+title: "Using Pi-hole on multiple VLANs"
 categories:
   - Tech
 tags:
   - Raspberry Pi
-  - PiHole
+  - Pi-hole
   - Networking
 aliases:
   - /2019/11/28/pihole-on-multiple-vlans/
