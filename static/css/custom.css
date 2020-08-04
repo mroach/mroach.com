@@ -18,6 +18,14 @@ figcaption {
   font-size: 0.9em;
 }
 
+.inline-items {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 /* Fix indentation for table of contents */
 .toc__menu ul li ul li a {
 	padding-left: 25px;
