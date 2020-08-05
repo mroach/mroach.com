@@ -26,6 +26,36 @@ figcaption {
   flex-wrap: wrap;
 }
 
+.post__header.with-cover {
+  min-height: 300px;
+  background-size: cover;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 0 0 25px 0;
+  margin-left: -25px;
+  margin-right: -25px;
+}
+
+.post__header.with-cover h1,
+.post__header.with-cover .post__meta * {
+  color: #eee;
+}
+.post__header.with-cover .post__meta,
+.post__header.with-cover h1 {
+  border: 0;
+  /* background: linear-gradient(90deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.2) 35%, rgba(255,255,255,0) 100%); */
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.post__header.with-cover .post__meta {
+  text-shadow: #444 1px 1px 1px;
+}
+.post__header.with-cover h1 {
+  text-shadow: #444 2px 2px 1px;
+}
+
 /* Fix indentation for table of contents */
 .toc__menu ul li ul li a {
 	padding-left: 25px;

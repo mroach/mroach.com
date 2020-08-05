@@ -13,6 +13,9 @@ tags:
   - Gigabyte
   - Computer History
 toc: true
+thumbnail: /2020/08/sun-ultra-24-rebuilt/images/front-badged.jpg
+cover: images/real-artsy-mouse.jpg
+
 ---
 
 When I first saw the Sun Ultra 24 online, I thought it was one of the most beautiful workstations I'd seen. I [got one in 2019]({{< ref "posts/2019/sun-ultra-24" >}}) and have made some use of it since. At this point, the hardware is just too old to be a daily driver. It's high time to upgrade the guts of this system.
