@@ -1,5 +1,5 @@
 ---
-title: "Sun Ultra 24 - Rebuilt"
+title: "Sun Ultra 24 - Reborn"
 date: 2020-08-05T00:00:00Z
 draft: false
 categories:
@@ -13,20 +13,22 @@ tags:
   - Gigabyte
   - Computer History
 toc: true
-thumbnail: /2020/08/sun-ultra-24-rebuilt/images/front-badged.jpg
+thumbnail: /2020/08/sun-ultra-24-reborn/images/front-badged.jpg
 cover: images/real-artsy-mouse.jpg
+aliases:
+  - /2020/08/sun-ultra-24-rebuilt
 images:
-  - /2020/08/sun-ultra-24-rebuilt/images/desk.jpg
+  - /2020/08/sun-ultra-24-reborn/images/desk.jpg
 
 ---
 
-When I first saw the Sun Ultra 24 online, I thought it was one of the most beautiful workstations I'd seen. I [got one in 2019]({{< ref "posts/2019/sun-ultra-24" >}}) and have made some use of it since. At this point, the hardware is just too old to be a daily driver. It's high time to upgrade the guts of this system.
+The **Sun Ultra 24** is objectively one of the most beautiful enterprise workstations ever created. I [picked one up last year]({{< ref "posts/2019/sun-ultra-24" >}}) but its hardware is rather dated and needs an upgrade to keep it as a daily driver. Let's do it.
 
 
 Background
 ----------
 
-The Sun Ultra 24 was one of the last workstations from Sun Microsystems. In their final years of making workstations they started offering x86-based systems with AMD Opteron or Intel Core 2 64-bit CPUs. Compared to UltraSPARC-based hardware of the past, these systems were pretty much bog-standard PCs. ATX* motherboards, SATA drives, DVI and DisplayPort.
+The Sun Ultra 24 was one of the last workstations from Sun Microsystems. In their final years of making workstations they started offering x86-based systems with AMD Opteron or Intel Core 2 64-bit CPUs. Compared to UltraSPARC-based hardware of the past, these systems were pretty much bog-standard PCs. ATX* motherboards, SATA drives, DVI,  DisplayPort, etc.
 
 This made the case exceptionally easy to use as a build base. No Dremel or CNC machine required.
 
