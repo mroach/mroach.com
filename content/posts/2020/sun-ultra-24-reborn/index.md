@@ -15,6 +15,8 @@ tags:
 toc: true
 thumbnail: /2020/08/sun-ultra-24-rebuilt/images/front-badged.jpg
 cover: images/real-artsy-mouse.jpg
+images:
+  - /2020/08/sun-ultra-24-rebuilt/images/desk.jpg
 
 ---
 
