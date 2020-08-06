@@ -174,12 +174,12 @@ The **USB** connection is standard and that fit right into my board.
 
 The board doesn't have a **Firewire** header, I don't have a Firewire controller card, and I don't have any Firewire devices. So that remains disconnected.
 
-The **front panel audio** cable looks standard but is too short for my board. I'll have to make an extension.
+The **front panel audio** cable is standard but was too short for my motherboard. I took wires from a breadboard kit to make an extension and it works perfectly.
 
 {{< inline_items >}}
   {{< figure src="images/fp-wires.jpg" alt="Front panel wires" caption="Disassembled front panel wires with donor female connector insulators from the breadboard wires." thumb="400" >}}
 
-  {{< figure src="images/front-io.jpg" alt="Front" caption="Front I/O panel. LED, power switch, and USB ports work." thumb="400" >}}
+  {{< figure src="images/front-io.jpg" alt="Front" caption="Front I/O panel. LED, power switch, audio jacks, and USB ports work." thumb="400" >}}
 {{< /inline_items >}}
 
 
