@@ -170,7 +170,7 @@ The power button and LED were all together in a block-style connector you see li
 
 There are some other wires there. I don't know what they do. I couldn't find documentation. I assume grounding and maybe a power source for something?
 
-The **USB** connection is standard and that fit right into my board.
+The **USB** connection is a standard USB 2.0 connector and that fit right into my board.
 
 The board doesn't have a **Firewire** header, I don't have a Firewire controller card, and I don't have any Firewire devices. So that remains disconnected.
 
@@ -179,7 +179,7 @@ The **front panel audio** cable is standard but was too short for my motherboard
 {{< inline_items >}}
   {{< figure src="images/fp-wires.jpg" alt="Front panel wires" caption="Disassembled front panel wires with donor female connector insulators from the breadboard wires." thumb="400" >}}
 
-  {{< figure src="images/front-io.jpg" alt="Front" caption="Front I/O panel. LED, power switch, audio jacks, and USB ports work." thumb="400" >}}
+  {{< figure src="images/front-io.jpg" alt="Front" caption="Front I/O panel. LED, power switch, audio jacks, and USB 2.0 ports work." thumb="400" >}}
 {{< /inline_items >}}
 
 
