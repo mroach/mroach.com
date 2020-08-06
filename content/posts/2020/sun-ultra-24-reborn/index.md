@@ -84,7 +84,7 @@ It also has support for Xeon CPUs which would be a nice upgrade in the future.
 
 Nothing remarkable here. I took the **Intel Core i5-8400** (6 core 2.8 GHz base) and 2x8GB sticks of DDR4 RAM out of my gaming PC. I'll add 2x16GB in the near future to support my prolific use of virtual machines and running Slack. The board supports up to 128 GB.
 
-{{< figure src="images/cpu-ram-installed.jpg" caption="CPU and RAM installed" thumb="600" class="center" >}}
+{{< figure src="images/cpu-ram-installed.jpg" caption="CPU and RAM installed. I initially put the RAM in the wrong slots when I took this pic; the labels were misleading. Fixed it soon after." thumb="600" class="center" >}}
 
 ### Graphics
 
@@ -265,7 +265,7 @@ Otherwise, no real hiccups. The SATA cables were all the right length for this b
 {{< inline_items >}}
   {{< figure src="images/ready-to-install.jpg" alt="Empty case" caption="Ready to install the motherboard!" thumb="400" class="center" >}}
 
-  {{< figure src="images/completed.jpg" alt="Inside" caption="Everything installed! Sharp eyes will notice the tip of my screwdriver got stuck on a PCI bracket." thumb="400" class="center" >}}
+  {{< figure src="images/completed.jpg" alt="Inside" caption="Everything installed!" thumb="400" class="center" >}}
 {{< /inline_items >}}
 
 
