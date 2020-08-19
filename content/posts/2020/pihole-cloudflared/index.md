@@ -241,6 +241,8 @@ With the `internal` network removed, we need to bring `cloudflared` onto the rea
 
 If the goal is to make the `cloudflared` DNS service available to the LAN, we want it on the standard port `53`. The problem is the `cloudflare/cloudflared` Docker image doesn't run as root so it won't have permission to bind to a privileged port (i.e. < 1024). We can fix this with a `sysctl` option `net.ipv4.ip_unprivileged_port_start=53`
 
+Depending on how your host system's Linux kernel is configured, this option may not work at all. For example, I found this not to work on a Synology NAS.
+
 ### Metrics
 
 The Prometheus metrics HTTP server apparently has a default behaviour of randomly generating a port to listen on. This is not helpful, so we can fix that by setting an environment variable `TUNNEL_METRICS=0.0.0.0:49312` to bind to all interfaces on port `49312`.
