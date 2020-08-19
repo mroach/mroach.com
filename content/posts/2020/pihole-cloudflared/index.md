@@ -292,9 +292,9 @@ services:
         ipv4_address: 10.65.2.4
 
 networks:
-  netcore:
+  priv_lan:
     external:
-      name: netcore
+      name: priv_lan
 ```
 
 If you already ran the other `docker-compose up`, tear it down now:
