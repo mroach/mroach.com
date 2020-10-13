@@ -147,6 +147,11 @@ services:
       # Explicitly disable a second DNS server, otherwise Pi-hole uses Google
       - "DNS2=no"
 
+      # Listen on all interfaces and permit all origins
+      # This allows Pihole to work in this setup and when answering across VLANS,
+      # but do not expose pi-hole to the internet!
+      - "DNSMASQ_LISTENING=all"
+
     # Persist data and custom configuration to the host's storage
     volumes:
       - '/mnt/app-data/pihole/config:/etc/pihole/'
@@ -285,6 +290,7 @@ services:
       - "TZ=Europe/Berlin"
       - "DNS1=10.65.2.14#53"
       - "DNS2=no"
+      - "DNSMASQ_LISTENING=all"
       - "WEBPASSWORD=admin"
     volumes:
       - '/mnt/app-data/pihole/config:/etc/pihole/'
@@ -351,6 +357,15 @@ You can also add custom blocklist rules. I added some to stop ads showing up on 
 ### Joining VLANs
 
 If you use VLANs on your network, `macvlan` supports binding to VLAN tagging. The [macvlan] documentation shows how.
+
+### Configuring your router
+
+For devices on your network to use Pi-hole as their DNS server, you'll need to make some configuration changes.
+
+If you have any devices with a manually-configured IP address such as a home server or NAS, you'll have to update their DNS servers to point to Pi-hole.
+
+Most home LANs use DHCP to automatically assign IP addresses and DNS servers to devices. For these devices to use Pi-hole, you need to update the DHCP server configuration. In typical home setups, the router is also the DHCP server and by default will tell devices to use the router as the DNS server too; an all-in-one solution. Most routers can be reconfigured to assign custom DNS servers to clients. The process varies wildly by router so I can't provide direction, but login to your router's
+admin interface and look for LAN and DHCP options.
 
 
 Conclusion
