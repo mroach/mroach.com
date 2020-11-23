@@ -88,7 +88,7 @@ Nothing remarkable here. I took the **Intel Core i5-8400** (6 core 2.8 GHz base)
 
 ### Graphics
 
-The system board has dual DisplayPort outputs which is unique and appreciated. I still do some gaming though, so I moved my GPU into this system: [EVGA 1660 Ti SC]. It's a good GPU for the games I play. My only complaint about it is the fan controller. It has no which means you can hear the fan just clicking on and off at idle, and sometimes it has this pulsating sound as the fan revs up and down.
+The system board has dual DisplayPort outputs which is unique and appreciated. I still do some gaming though, so I moved my GPU into this system: [EVGA 1660 Ti SC]. It's a good GPU for the games I play. My only complaint about it is the fan controller. It has no hysteresis which means you can hear the fan just clicking on and off at idle, and sometimes it has this pulsating sound as the fan revs up and down.
 
 {{< figure src="images/evga-1660-ti.jpg" alt="EVGA 1660 Ti SC" thumb="400" class="center" >}}
 
@@ -190,7 +190,7 @@ Warning: We're going on an adventure into the weeds here.
 
 I wanted to give the system a good name. Naming things is always hard. On the spectrum of descriptive and literal to creative and fun, I usually tends towards the former.
 
-The naming scheme in the _Ultra_ series doesn't have an obvious pattern where you can see a clear progression. One problem is the _Utra_ moniker spans both workstation and server lines. But let's focus on workstations.
+The naming scheme in the _Ultra_ series doesn't have an obvious pattern where you can see a clear progression. One problem is the _Ultra_ moniker spans both workstation and server lines. But let's focus on workstations.
 
 It started with the _[Ultra 1]_ and _[Ultra 2]_. Makes sense. Then the _[Ultra 30]_. Bit of a jump, but ok. Then the _[Ultra 5]_ and _[Ultra 10]_ that were the next generation in different form factors: desktop and tower. But now we've moved backwards in number. The _[Ultra 60]_ and _[Ultra 80]_ were next. So there was a generally linear progression here, aside from the jump from _30_ back to _5_. For the next few years we had the _Blade_ series for the workstations. Blade _100_, _150_, _1000_, _2000_.
 
