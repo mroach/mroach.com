@@ -9,7 +9,7 @@ This is a static website generated using [Hugo].
 The theme is included in the repo as a git submodule, so clone the repo with the `--recurse-submodules` argument or after cloning, run:
 
 ```shell
-git submoule update --init --recursive
+git submodule update --init --recursive
 ```
 
 ### Install Hugo
