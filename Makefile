@@ -11,6 +11,8 @@ SIZES := 16 32 48 64
 # create a list of targets from sizes. e.g. 64 => favicon-64.ico
 favicon-targets = $(addsuffix .ico, $(addprefix favicon-, $(SIZES)))
 
+PORT ?= 1313
+
 all: static/favicon.ico static/apple-touch-icon.png
 
 clean:
@@ -35,3 +37,6 @@ static/favicon.ico: $(favicon-targets)
 
 static/apple-touch-icon.png:
 	$(MAKE) icon/static/apple-touch-icon.png SIZE=180
+
+serve:
+	docker run --rm -v $(PWD):/src -p $(PORT):1313 klakegg/hugo:0.80.0 serve
