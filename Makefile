@@ -39,4 +39,4 @@ static/apple-touch-icon.png:
 	$(MAKE) icon/static/apple-touch-icon.png SIZE=180
 
 serve:
-	docker run --rm -v $(PWD):/src -p $(PORT):1313 klakegg/hugo:0.80.0 serve
+	docker run --rm -v $(PWD):/src -p $(PORT):1313 klakegg/hugo:0.83.1 serve
