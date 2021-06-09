@@ -69,6 +69,7 @@ figcaption {
 	padding-left: 65px;
 }
 
-.table-slim table {
+.table-slim table,
+table.table-slim {
   width: auto;
 }
