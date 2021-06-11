@@ -29,6 +29,7 @@ figcaption {
 .post__header.with-cover {
   min-height: 300px;
   background-size: cover;
+  background-position: center;
   min-height: 300px;
   display: flex;
   flex-direction: column-reverse;
