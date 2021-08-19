@@ -9,7 +9,7 @@ figure.float-right {
 }
 
 figure.center {
-  margin: 0 auto;
+  margin: 0 auto 1em;
 }
 
 figcaption > p:only-child { margin: 0 }
