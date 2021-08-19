@@ -1,12 +1,10 @@
 {{- $img := .Page.Resources.GetMatch (.Get "src") }}
 {{- $link := "" }}
 {{- $classes := slice (.Get "class") }}
+{{- $link = .Get "link" | default $img.RelPermalink }}
 {{- if .Get "thumb" }}
-    {{- $link = .Get "link" | default $img.RelPermalink }}
     {{- $img = $img.Resize (printf "%sx" (.Get "thumb")) }}
     {{- $classes = $classes | append "thumb" }}
-{{- else }}
-    {{- $link = .Get "link" }}
 {{- end }}
 
 <figure class="{{ delimit $classes " " }}" {{ with .Get "thumb" }} style="max-width: {{ . }}px"{{ end }}>
