@@ -1,11 +1,14 @@
 ---
 title: "Nintendo 64 Modernisation"
 date: 2021-08-19T21:06:06+02:00
+categories:
+  - DIY
+  - Gaming
 tags:
   - Nintendo 64
+  - N64
   - Retro
   - Gaming
-  - DIY
 thumbnail: /2021/08/nintendo-64-modernisation/images/setup-with-mario.jpg
 images:
   - /2021/08/nintendo-64-modernisation/images/setup-with-mario.jpg
@@ -60,7 +63,7 @@ including my *Silicon Graphics O2* that uses sync-on-green VGA.
 
 ## RGB Output
 
-One catch. The *Open Source Scan Converter* (henceforth *OSSC*) only works with RGB video.
+One catch. The *Open Source Scan Converter* (aka *OSSC*) only works with RGB video.
 The Nintendo 64 is an oddity in consoles in that it doesn't natively output RGB.
 (There is one exception which is the French version since apparently Nintendo didn't want to deal with [SECAM] video?)
 
@@ -71,35 +74,46 @@ Fortunately some clever hackers out there have engineered the [N64 RGB Mod]
 boards that can be soldered onto the mainboard of **NTSC** Nintendo 64s to re-enable
 RGB output!
 
-## PAL or NTSC?
+## PAL or NTSC Console?
 
-**PAL** Nintendo 64s (or Nintendos 64?) require a much more complicated RGB mod.
-In addition, most games were designed for NTSC and then later just re-tuned to
-work on PAL. I wanted an NTSC Nintendo 64, so I snagged a Japanese one off of eBay for cheap!
+NTSC and PAL consoles are capable of playing games from any region. The software on the cartridge
+controls the video output, no the console. And as we'll see in a moment, defeating the region
+lockout on the N64 is trivial.
+
+PAL consoles require the more complicated [RGB Advanced] mod. I found a cheap NTSC-J (Japanese)
+console on eBay and grabbed that.
 
 ## Japanese console in Europe
 
-Since I'm using RGB output with the OSSC, video signal isn't a problem. But power?
+As discussed, the video signal output is not an issue. The only issue is power.
+
 The Nintendo 64 power adapter converts AC to 2 different DC voltages.
 Fortunately power supplies are easily swappable between any region consoles.
 I bought a European power supply, plugged it into my Japanese Nintendo 64, and I'm good to go.
 
-{{< figure src="images/power.jpg" alt="Japanese Nintendo 64 with European power supply" class="center" >}}
+{{< figure src="images/power.jpg" alt="Japanese Nintendo 64 with European power supply" thumb="800" class="center" >}}
 
 ## Region lockout
 
-The Nintendo 64 only has one region protection mechanism which is the location of physical notches on the cartridges.
+The Nintendo 64 only has one region protection mechanism which is the location of physical notches on the cartridges
+that need to line up with tabs on a plastic tray inside the console.
 
-The cartridge tray is easily removed and you can buy replacements online that don't have the notches at all
-so you can fit NTSC-U, NTSC-J, or PAL cartridges in the same system. I snagged one and installed it.
+In the picture below you can see cartridges from the US and Japan with their different notch positions.
+The EverDrive 64's design is inherently region free as it'll accept the tabs from anywhere.
 
-{{< figure src="images/region-free-shelf-underside.jpg" alt="Region-free shelf" thumb="300" class="center" >}}
+{{< figure src="images/carts.jpg" alt="Nintendo 64 cartridges" thumb="800" class="center"
+    caption="US, Japanese, and EverDrive cartridges." >}}
+
+The cartridge tray is easily removed and you can buy 3D-printed replacements online that don't have the tabs at all
+so you can fit original NTSC-U, NTSC-J, or PAL cartridges in the same system. I snagged one and installed it.
+
+{{< figure src="images/region-free-shelf-underside.jpg" alt="Region-free shelf" thumb="800" class="center" >}}
 
 ## RGB Mod
 
 ### Shopping
 
-* [Nintendo 64 RGB Bypass Amp] for NTSC consoles as it was easy to get here in Europe.
+* [RGB Bypass Amp] for NTSC consoles as it was easy to get here in Europe.
 * Nintendo [SCART] cable designed for NTSC systems. I learned the output voltage on NTSC and PAL consoles is different.
 
 I have the soldering skills of a baboon and still managed to get it on there and working.
@@ -109,7 +123,7 @@ solder in a csync wire or the other modifications like removing resistors and ca
 
 Note: I closed **J1** which disables the low-pass filter built-into the amp. The OSSC has its own low-pass filter.
 
-{{< figure src="images/board.jpg" alt="Nintendo 64 board with RGB amp installed" class="float-right" >}}
+{{< figure src="images/board.jpg" alt="Nintendo 64 board with RGB amp installed" thumb="800" class="center" >}}
 
 ## Game library
 
@@ -125,7 +139,7 @@ By default, N64 games apply anti-aliasing. This creates a blurry image. See [N64
 Fortunately there are packs of patches you can apply on the EverDrive to disable blurring
 in most games, and in others, you can enter cheat/Gameshark codes to do it.
 
-## Setup
+## Display
 
 The last piece of the puzzle was a display. Most NTSC Nintendo 64 games run in **240p** mode.
 The OSSC can do 5x line muplication which yields a 1600x1200 image. I snagged a **Dell 2007FP**
@@ -135,18 +149,66 @@ display for dealing with retro inputs.
 I used an HDMI to DVI adapter to connect the OSSC, and then used on of the 3.5mm audio outputs
 on the OSSC to connect speakers directly.
 
+One big **downside** to using a computer display is that it can't display the 50 Hz signal
+which you get when playing PAL games. For me this isn't a big deal since my collection is all
+NTSC, but I wanted to note it.
+
+## Open Source Scan Converter
+
+Setting up the OSSC is technically plug and play, but you won't get the best results that way.
+Each device has its own unique output characteristics that can have big impacts on the image
+quality.
+
+Some searching brought me to the [OSSC Optimal Timing Profiles] page which has all you need to know.
+I used the profile editor to create one for Nintendo 64 and Super Nintendo. I made a couple tweaks
+to the timings until it looked perfect and of course saved it in the OSSC.
+
+Now it's plug and play!
+
+## Shopping list
+
+{{<div "table table-slim">}}
+| Item                         | Price |
+| ---------------------------- | ----: |
+| Nintendo 64 NTSC-J Console   |   €33 |
+| Original EU power supply     |   €20 |
+| Region-free slot mod         |    €9 |
+| RGB Bypass Amp               |   €17 |
+| Expansion Pak (CIB)          |   €55 |
+| Controller + Rumble Pak      |   €28 |
+| Controller                   |   €25 |
+| NTSC SCART cable             |    €9 |
+| EverDrive 64 X5              |  €100 |
+| Open Source Scan Converter   |  €200 |
+| Dell 2007FP Display          |   €45 |
+{{</div>}}
+
+[Expansion Pak]: https://en.wikipedia.org/wiki/Nintendo_64_accessories#Expansion_Pak
+
+The OSSC and LCD have uses beyond just the Nintendo 64, so I almost consider them as
+separate expenses to this project. I intend to use them with Dreamcast, PlayStation 2, and Xbox.
+
+The all-in cost for the N64-exclusive purchases was about **€300**.
+Now, I know this is the price of a Nintendo Switch, but half the fun for me was putting this all
+together and now that it's done, I have a console I've already spent tens of hours gaming on.
+
+## Final setup
+
 With that, my setup was complete. The image quality is fantastic. No latency, sharp edges,
 great sound. I love it! Perfect retro gaming setup.
 
-{{< figure src="images/setup-with-mario.jpg" alt="Nintendo 64 playing Super Mario 64" class="center" >}}
+{{< figure src="images/setup-with-mario.jpg" alt="Nintendo 64 playing Super Mario 64" thumb="800" class="center" >}}
+
 
 [5th generation]: https://en.wikipedia.org/wiki/Fifth_generation_of_video_game_consoles
 [Open Source Scan Converter]: https://videogameperfection.com/products/open-source-scan-converter/
 [UltraHDMI]: https://www.retrorgb.com/ultrahdmi.html
 [SECAM]: https://en.wikipedia.org/wiki/SECAM
 [N64 RGB Mod]: https://www.retrorgb.com/n64rgbmod.html
-[Nintendo 64 RGB Bypass Amp]: https://videogameperfection.com/products/nintendo-64-rgb-bypass-amp-revision-1-2b/
+[RGB Bypass Amp]: https://videogameperfection.com/products/nintendo-64-rgb-bypass-amp-revision-1-2b/
 [SCART]: https://en.wikipedia.org/wiki/SCART
 [csync]: https://www.retrorgb.com/csync.html
 [N64 Blur]: https://www.retrorgb.com/n64blur.html
 [EverDrive 64]: https://krikzz.com/store/home/55-everdrive-64-x7.html
+[OSSC Optimal Timing Profiles]: http://www.firebrandx.com/osscprofiles.html
+[RGB Advanced]: https://videogameperfection.com/products/n64-advanced-ultimate/
