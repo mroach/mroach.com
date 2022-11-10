@@ -4,7 +4,7 @@
   <div class="widget-social__content widget__content">
     {{- with .Site.Params.widgets.social.mastodon }}
     <div class="widget-social__item widget__item">
-      <a class="widget-social__link widget__link btn" title="Mastodon" rel="me noopener noreferrer" href="{{ . }}" target="_blank">
+      <a class="widget-social__link widget__link btn" title="Mastodon" rel="me" href="{{ . }}" target="_blank">
         {{ partial "svg/mastodon.svg" (dict "class" "widget-social__link-icon") }}
         <span>Mastodon</span>
       </a>
