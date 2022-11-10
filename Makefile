@@ -12,7 +12,7 @@ SIZES := 16 32 48 64
 favicon-targets = $(addsuffix .ico, $(addprefix favicon-, $(SIZES)))
 
 PORT ?= 1313
-HUGO_VERSION ?= 0.83.1
+HUGO_VERSION ?= 0.105.0
 
 all: static/favicon.ico static/apple-touch-icon.png
 
