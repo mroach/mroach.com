@@ -42,4 +42,7 @@ static/apple-touch-icon.png:
 serve:
 	docker run --rm -v $(PWD):/src -p $(PORT):1313 klakegg/hugo:$(HUGO_VERSION) serve
 
+build:
+	docker run --rm -v $(PWD):/src klakegg/hugo:$(HUGO_VERSION)
+
 .PHONY: serve
