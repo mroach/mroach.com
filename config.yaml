@@ -44,6 +44,7 @@ params:
 
   widgets:
     social:
+      mastodon: https://mas.to/@mroach
       github: mroach
       twitter: mroach
       linkedin: mfroach
