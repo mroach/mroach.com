@@ -8,10 +8,6 @@ theme: "mainroad"
 permalinks:
   posts: /:year/:month/:title/
 
-author:
-  name: Michael Roach
-  avatar: "images/me-sticker.png"
-
 markup:
   defaultMarkdownHandler: goldmark
   goldmark:
@@ -35,6 +31,9 @@ params:
     - categories
   customCSS:
     - "css/custom.css"
+  author:
+    name: Michael Roach
+    avatar: "images/me-sticker.png"
 
   logo:
     image: images/me-sticker.png
