@@ -12,7 +12,7 @@ SIZES := 16 32 48 64
 favicon-targets = $(addsuffix .ico, $(addprefix favicon-, $(SIZES)))
 
 PORT ?= 1313
-HUGO_VERSION ?= 0.105.0
+HUGO_VERSION ?= 0.145.0
 
 all: static/favicon.ico static/apple-touch-icon.png
 
@@ -40,9 +40,9 @@ static/apple-touch-icon.png:
 	$(MAKE) icon/static/apple-touch-icon.png SIZE=180
 
 serve:
-	docker run --rm -v $(PWD):/src -p $(PORT):1313 klakegg/hugo:$(HUGO_VERSION) serve
+	docker run --rm -v $(PWD):/src -p $(PORT):1313 hugomods/hugo:$(HUGO_VERSION) hugo server --bind 0.0.0.0
 
 build:
-	docker run --rm -v $(PWD):/src klakegg/hugo:$(HUGO_VERSION)
+	docker run --rm -v $(PWD):/src hugomods/hugo:$(HUGO_VERSION) hugo build
 
 .PHONY: serve
