@@ -24,7 +24,7 @@ params:
   pager: true
   readmore: true
   opengraph: true
-  twitter_cards: true
+  twitter_cards: false
   highlightColor: "rgb(58,110,165)"
   post_meta:
     - date
@@ -45,7 +45,6 @@ params:
     social:
       mastodon: https://mas.to/@mroach
       github: mroach
-      twitter: mroach
       linkedin: mfroach
       email: web@c.mroach.com
 
