@@ -1,5 +1,5 @@
 ---
-title: "Windows 2000 on Libvirt"
+title: "Windows 2000 on libvirt"
 date: 2025-04-07T19:14:58+02:00
 tags:
   - Windows
@@ -42,9 +42,19 @@ editor to set them.
 
 ### Network
 
-Change the model to `rtl8139` or `pcnet`. Both work just fine.
+There are 3 well-supported adapters available to use in libvirt/QEMU.
 
-If you're using a VLAN, this is the time to set that too.
+{{<div "table table-slim">}}
+| ID          | Model            | Speed    |
+| ------      | ---------        | -----    |
+| `e1000`     | Intel PRO/1000   | 1 Gbit   |
+| `rtl8139`   | Realtek RTL8139  | 100 Mbit |
+| `pcnet`     | AMD PCNET        | 10 Mbit  |
+{{</div>}}
+
+Windows 2000 includes drivers for `rtl8139` and `pcnet` but *not* `e1000`.
+
+If you want gigabit, you'll need a driver disk or CD for the PRO/1000. Otherwise, pick `rtl8139`.
 
 ### Sound
 
@@ -53,6 +63,16 @@ If you want sound, set the model to `sb16`. Otherwise, delete the card.
 ### Video
 
 Set the model to `cirrus`.
+
+This will limit you to 1024x768 @ 16 bit colour, or 1280x1024 @ 256 colour.
+
+To get higher resolutions, you can use the model `vmvga` to emulate the VMWare SVGA adapter.
+This requires drivers from VMware Tools version 10.0.12, the last to support Windows 2000.
+
+https://packages.vmware.com/tools/releases/10.0.12/windows/
+
+I extracted the Windows 2000 video drivers from this installer:
+https://dl.mroach.com/virt/vmvga_win2k.zip
 
 ### CPU
 
