@@ -100,6 +100,10 @@ From here it's pretty self-explanatory.
 
 You can use **Sessions** to monitor connections to your AppleTalk shares.
 
+I found that when connecting either from MacOS or Windows, the "guest" login option
+was disabled, forcing me to enter a password, and that didn't work either.
+If I figure this out, I'll update this.
+
 {{< figure src="images/appletalk-folder-sharing.png" class="center" >}}
 
 
