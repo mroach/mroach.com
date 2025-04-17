@@ -1,6 +1,8 @@
 ---
 title: "Windows 2000 on libvirt"
 date: 2025-04-07T19:14:58+02:00
+categories:
+  - Tech
 tags:
   - Windows
   - Retro
