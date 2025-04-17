@@ -1,11 +1,30 @@
 ---
 title: "Windows 2000 Domain Recovery"
 date: 2025-04-14T21:17:38+02:00
+categories:
+  - Tech
+tags:
+  - Windows 2000
+  - Active Directory
+  - Homelab
+images:
+  - /2025/04/windows-2000-domain-recovery/images/role-seize.png
 ---
 
 I have a Windows 2000 Active Directory domain that had one domain controller.
 I added a second domain controller and performed what I thought were all necessary
-steps to prepare the new domain controller to be the only one in the domain:
+steps to prepare the new domain controller to be the only one in the domain.
+Turns out I missed a few key steps and broke my domain.
+
+<!-- more -->
+
+In hindsight I think Windows warned me, but I was so sure I did it all right.
+If only they had warned me properly in a way that would truly alarm me:
+
+{{< figure src="images/sim-city-guy.png" >}}
+
+
+## How I partially decommissioned the server
 
 1. In **Active Directory Sites and Services**, I enabled **Global Catalog** by
 right-clicking on **NTDS Settings** for the new controller.
@@ -13,10 +32,10 @@ right-clicking on **NTDS Settings** for the new controller.
 clicked **Operations Masters...** and set my new controller to the **RID**, **PDC**,
 and **Infrastructure** master.
 
-As far as I understand, this should have done the trick. After running `dcpromo`
+As far as I understood at the time, this should have done the trick. After running `dcpromo`
 on the old controller to demote it, things started going wrong. I could no longer
 join the domain on new computers. I would get errors about not being able
-to allocate a resource identifier. Uh oh.
+to allocate a resource identifier. Uh oh. Clearly I missed something.
 
 ## Debugging
 
@@ -24,7 +43,7 @@ You'll want to have the **Windows 2000 Support Tools** installed.
 The installer is on the Windows 2000 CD in `Support\Tools\setup.exe`.
 
 I ran `dcdiag` to see what was going on.
-Things went wrong with the `KnowsOfRoleHodlers` tests. I would get:
+Things went wrong with the `KnowsOfRoleHolders` tests. I would get:
 
 ```
 Warning: CN="NTDS Settings DEL:... is the PDC Owner, but is deleted.
@@ -91,3 +110,14 @@ ntdsutil: quit
     src="images/role-seize.png"
     alt="Screenshot of role seizure using ntdsutil"
 >}}
+
+## What I missed
+
+The first time around I missed transferring two key roles: **Schema Master** and **Domain Naming Master**.
+
+Microsoft has this well-documented and I still missed it.
+
+https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/view-transfer-fsmo-roles
+
+Since this mess I decommissioned this server and this time I did it properly.
+This was all still a valuable learning experience and I'm glad for it ultimately.
