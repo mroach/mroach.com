@@ -58,7 +58,7 @@ If you want gigabit, you'll need a driver disk or CD for the PRO/1000. Otherwise
 
 ### Sound
 
-If you want sound, set the model to `sb16`. Otherwise, delete the card.
+If you want sound, set the model to `ac97`. Otherwise, delete the card.
 
 ### Video
 
