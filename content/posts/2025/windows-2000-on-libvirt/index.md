@@ -106,6 +106,9 @@ It should look like this:
 
 ### Debian 12 Gotcha
 
+**Update**: I found that deleting the `hpet` element entirely *and* deleting the
+**Tablet** input device seems to solve the issue as well.  (Reboot required after deleting the tablet.)
+
 If you're running this on Debian 12 "Bookworm" you'll get an error:
 
 > unsupported configuration: hpet is not supported
