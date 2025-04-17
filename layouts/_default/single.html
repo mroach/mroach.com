@@ -6,7 +6,10 @@
         {{- else }}
         <header class="post__header">
         {{- end }}
+            {{- if .Params.hideTitle }}
+            {{- else }}
             <h1 class="post__title">{{ .Title }}</h1>
+            {{- end }}
             {{- with .Params.lead }}
             <p class="post__lead">{{ . }}</p>
             {{- end }}

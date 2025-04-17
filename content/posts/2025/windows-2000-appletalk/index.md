@@ -7,6 +7,11 @@ tags:
   - Windows 2000
   - AppleTalk
   - Homelab
+cover: images/appletalk-for-windows-2000.png
+images:
+  - /2025/04/windows-2000-and-appletalk/images/appletalk-for-windows-2000.png
+thumbnail: /2025/04/windows-2000-and-appletalk/images/appletalk-for-windows-2000.png
+hideTitle: true
 ---
 
 So you want to get up and running with AppleTalk on Windows 2000? Good choice!
