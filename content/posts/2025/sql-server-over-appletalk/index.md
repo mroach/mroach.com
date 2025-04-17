@@ -57,7 +57,8 @@ That's the router problem sorted!
 ## Windows and SQL Server Setup
 
 Setting-up AppleTalk on Windows is a fairly easy, especially if an AppleTalk Zone
-is already setup on your network.
+is already setup on your network. If you haven't setup AppleTalk yet, check out
+[Windows 2000 and AppleTalk](/2025/04/windows-2000-and-appletalk).
 
 AppleTalk is supported natively by:
 
