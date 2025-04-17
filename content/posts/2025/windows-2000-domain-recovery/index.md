@@ -16,7 +16,7 @@ I added a second domain controller and performed what I thought were all necessa
 steps to prepare the new domain controller to be the only one in the domain.
 Turns out I missed a few key steps and broke my domain.
 
-<!-- more -->
+<!--more-->
 
 In hindsight I think Windows warned me, but I was so sure I did it all right.
 If only they had warned me properly in a way that would truly alarm me:

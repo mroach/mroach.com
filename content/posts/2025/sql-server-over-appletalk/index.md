@@ -20,6 +20,8 @@ If you're looking for an instruction guide to *successfully* connect to
 SQL Server from a Mac using AppleTalk, I'm afraid this isn't it. This is
 documentation of efforts made to get it to work and the dead-end result.
 
+<!--more-->
+
 ## Origin
 
 {{< figure
@@ -28,8 +30,6 @@ documentation of efforts made to get it to work and the dead-end result.
     class="float-right"
     thumb="300"
 >}}
-
-<!-- more -->
 
 I was installing SQL Server 2000 and I noticed an option that I hadn't noticed
 before, despite having installing SQL Server dozens of times before: **AppleTalk ADSP**.

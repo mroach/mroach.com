@@ -22,6 +22,8 @@ the Super Nintendo. I finally brought it back to Denmark a few months ago.
 When importing a console from one region to another, there are two big considerations:
 **power** and **video**.
 
+<!--more-->
+
 Power
 --------------------------------------------------------------------------------
 
