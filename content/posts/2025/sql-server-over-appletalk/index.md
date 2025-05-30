@@ -32,7 +32,7 @@ documentation of efforts made to get it to work and the dead-end result.
 >}}
 
 I was installing SQL Server 2000 and I noticed an option that I hadn't noticed
-before, despite having installing SQL Server dozens of times before: **AppleTalk ADSP**.
+before, despite having installed SQL Server dozens of times before: **AppleTalk ADSP**.
 
 Maybe it's because I had just watched another [MARCHintosh] go by on Mastodon
 where users have established a global AppleTalk network called **GlobalTalk**
