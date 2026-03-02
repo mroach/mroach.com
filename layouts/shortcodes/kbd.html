@@ -1,0 +1,3 @@
+{{ $icons := dict "shift" "⇧" "caps" "⇪" "enter" "↵" "option" "⌥" "command" "⌘" "esc" "⎋" }}
+{{ $name := .Get 0 }}
+<kbd>{{ strings.FirstUpper $name }} {{ index $icons $name }}</kbd>
