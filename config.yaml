@@ -43,7 +43,7 @@ params:
 
   widgets:
     social:
-      mastodon: https://mas.to/@mroach
+      mastodon: https://ublog.mroach.com/@mroach
       github: mroach
       linkedin: mfroach
       email: web@c.mroach.com
