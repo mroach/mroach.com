@@ -179,4 +179,7 @@ Adding it is easy. It's the same procedure as adding a protocol in Windows 2000.
 
 You still have to use the command line app `ipv6` for status and configuration though.
 
-{{< figure src="images/ipv6-xp.png" alt="Screenshot of IPv6 configuration on Windows XP" >}}
+* Internet Explorer 6.0 will default to IPv6 when it's available.
+* Tools like `ping` and `tracert` will also default to IPv6 when available.
+
+{{< figure src="images/ipv6-xp-ie.png" alt="Screenshot of IPv6 configuration on Windows XP" >}}
