@@ -13,9 +13,8 @@ images:
 thumbnail: /2026/08/windows-nt-4-on-libvirt/images/nt4-desktop.png
 ---
 
-To celebrate this month being the 30th anniversary of Windows NT 4.0's release,
-I wanted to put together a little guide for how to get it up and running smoothly
-in libvirt on Linux.
+To celebrate 24 August 2026, the 30th anniversary of Windows NT Workstation 4.0's release,
+I put together a guide for how to get it up and running smoothly in libvirt on Linux.
 
 <!--more-->
 
@@ -28,24 +27,6 @@ only tested and working with with Workstation and regular Server.
     alt="Windows NT 4.0 Desktop"
 >}}
 
----------------
-Create a new VM
----------------
-
-When creating a new VM, libvirt won't detect the OS from the install media.
-
-1. Open the search box
-2. Tick **Include end of life operating systems**
-3. Pick **Windows NT Server 4.0 (winnt4.0)**
-
-I pick a disk size of 4 GB since the NT installer won't let you format and install
-to a C: drive larger than 4 GB. You can always add more disks later.
-
-128 MB of RAM is typically ample for NT.
-
-At the last step, **do not** begin installation yet. We have a bunch of settings
-to change. Tick *Customise configuration before install*.
-
 -------
 Drivers
 -------
@@ -54,6 +35,37 @@ This guide makes driver recommendations to get the best virtual NT 4.0 experienc
 
 I've assembled a floppy disk image with all necessary drivers: [qemu-nt4.img](resources/qemu-nt4.img)
 
+---------------
+Create a new VM
+---------------
+
+When creating a new VM, libvirt won't detect the OS from the install media.
+
+### OS Select
+
+1. Open the search box
+2. Tick **Include end of life operating systems**
+3. Pick **Windows NT Server 4.0 (winnt4.0)**
+
+{{< figure
+    src="images/libvirt-os-select.png"
+    alt="Selecting Windows NT Server 4.0"
+>}}
+
+### Disk
+
+I pick a disk size of 4 GB since the NT installer won't let you format and install
+to a C: drive larger than 4 GB. You can always add more disks later.
+
+### RAM
+
+128 MB of RAM is typically ample for NT.
+
+### Don't install, yet
+
+At the last step, **do not** begin installation yet. We have a bunch of settings
+to change. Tick **Customise configuration before install**.
+
 
 -------------
 Configuration
@@ -61,7 +73,7 @@ Configuration
 
 ### CPU
 
-Disable *Copy host CPU configuration*. Set the model to `pentium-v1`.
+Disable **Copy host CPU configuration**. Set the model to `pentium-v1`.
 
 ### Boot Options
 
@@ -73,6 +85,11 @@ There is no "press spacebar to install..." with a timeout like Windows 2000 and 
 To avoid having to eject and re-insert the virtual CD-ROM multiple times,
 make the hard drive have first boot priority. With a blank hard drive image,
 you'll boot into the installer, and after the first phase, off the hard drive.
+
+{{< figure
+    src="images/libvirt-boot-order.png"
+    alt="Boot Options showing HDD before CD-ROM"
+>}}
 
 ### IDE cache mode
 
@@ -91,8 +108,8 @@ card from AMD and works fine, but you'll be limited to 10 Mbit which can be roug
 depending on what you use the VM for.
 You won't find `pcnet` in the *Device model* dropdown, but you can type it in or edit the XML.
 
-Your other option is the Realtek `rtl8319`. This is a 100 Mbit card that's well-supported
-by NT 4, but you'll need a driver floppy or CD-ROM to install it.
+Your other option is the Realtek `rtl8139`. This is a 100 Mbit card that's well-supported
+by NT 4, but you'll need to bring your own drivers.
 
 ### Sound
 
@@ -122,9 +139,23 @@ at low resolutions.
 If you want to install network support during setup, a floppy drive and image is
 the natural way to do this.
 
-------------
-During setup
-------------
+----------------------
+During NT installation
+----------------------
+
+### Network
+
+* If you're using `pcnet` as your NIC, you can auto-detect this during setup.
+* If you're using the `rtl8139` and have the floppy driver disk available, you
+  can get the NIC installed at this point.
+
+You can of course always add networking support after the initial installation.
+
+{{< figure
+    src="images/nt4-setup-nic.png"
+    alt="Windows NT setup - Network card"
+>}}
+
 
 ### Display
 
@@ -139,13 +170,17 @@ Once your new NT install is up and running, there are few more things you'll wan
 
 ### ATA Driver
 
-By default, your I/O will be running in PIO mode which is *terribly* slow.
+By default, your disk I/O will be running in PIO mode which is *terribly* slow.
 Unless you want your VM to feel like you're running on a vintage 486, you'll want
 to install an ATA driver so you're running in DMA mode.
 
 The [UniATA] driver works great and will provide a noticeable improvement in disk I/O performance.
 
-In **Control Panel**, open up **SCSI Adapters**
+1. In **Control Panel**, open up **SCSI Adapters**
+2. On the **Drivers** tab, click **Add...**, then **Have Disk...** and enter the path to the UniATA drivers. If you're using my floppy image, it's `A:\uniata`
+3. Select **Universal ATA Driver (Win NT 4) (Win2003)**
+4. After that's added, select **IDE CD-ROM (ATAPI 1.2)/Dual-channel PCI IDE Controller** and then **Remove** it.
+5. Reboot and you'll now be running with fast I/O.
 
 [UniATA]: http://alter.org.ua/en/soft/win/uni_ata/index.php
 
@@ -165,6 +200,19 @@ Install the right drivers for your card. **VMWare SVGA** (for `vmvga`) and
 I've found that `vmvga` can have some strange rendering issues like the mouse being
 too large and screen elements persisting. The VBE driver causes a license to
 appear during the blue startup screen, but that's not a problem.
+
+To install the driver:
+1. Right-click on the desktop and click **Properties**
+2. On the **Settings** tab, click **Display Type...**
+3. Click **Change** and then **Have Disk...**
+
+If you're using my driver disk, now you can enter `A:\vga` or `A:\vmvga` depending
+on which adapter you're using.
+
+Note: If you're using `vga`, after rebooting your system your display will be set to
+640x480 which obscures the "OK" button in the **Display Properties** window.
+If you tab through the 3 buttons at the bottom of this window, hit tab once more and then
+enter to apply the settings.
 
 ### Service Pack 6
 
