@@ -16,11 +16,9 @@ thumbnail: /2026/08/windows-nt-4-on-libvirt/images/nt4-desktop.png
 To celebrate 24 August 2026, the 30th anniversary of Windows NT Workstation 4.0's release,
 I put together a guide for how to get it up and running smoothly in libvirt on Linux.
 
-<!--more-->
+This guide works for NT 4 Workstation, Server, and Terminal Server.
 
-I've personally had a world of hurt trying to get Windows NT Terminal Server to work
-at all with libvirt/qemu. Lots of disk corruption and I/O errors. This guide is
-only tested and working with with Workstation and regular Server.
+<!--more-->
 
 {{< figure
     src="images/nt4-happy-birthday.png"
@@ -31,9 +29,13 @@ only tested and working with with Workstation and regular Server.
 Drivers
 -------
 
-This guide makes driver recommendations to get the best virtual NT 4.0 experience.
+This guide aims to provide the best possible NT 4 experience in qemu, and that
+requires bringing some of your own drivers. The big ones are for:
+* `lsilogic` SCSI controller
+* `rtl8139` 100 Mbit network adapter
+* `vga` high-resolution graphics adapter
 
-I've assembled a floppy disk image with all necessary drivers: [qemu-nt4.img](resources/qemu-nt4.img)
+I've assembled a floppy disk image with all necessary drivers: [qemu-nt4.img](resources/qemu-nt4.img) and this guide assumes you're using it.
 
 ---------------
 Create a new VM
@@ -73,7 +75,8 @@ Configuration
 
 ### CPU
 
-Disable **Copy host CPU configuration**. Set the model to `pentium-v1`.
+Disable **Copy host CPU configuration**. Set the model to `pentium`.
+If you don't set this to `pentium`, the VM will halt during the text-phase of setup.
 
 ### Boot Options
 
@@ -91,12 +94,26 @@ you'll boot into the installer, and after the first phase, off the hard drive.
     alt="Boot Options showing HDD before CD-ROM"
 >}}
 
-### IDE cache mode
+### SCSI
+
+NT Workstation and Server will work with IDE drives. Terminal Server Edition however
+will not. The installation will throw several errors about missing files, and once
+you boot into the OS, you'll start getting reports of disk corruption and eventually
+the system will run a disk check and crash on every boot.
+
+Aside from that, SCSI has *significantly* better performance than IDE.
+
+So, don't use IDE. Use SCSI for *both* the hard drive and CD-ROM drive.
+
+If you really want to use IDE, you'll want to install ATA drivers to fix
+the performance issues. That's covered later on.
+
+### Drive cache mode
 
 If you don't change these settings, you'll get random I/O errors during installation
 and VM usage that can be fatal.
 
-For both **IDE Disk 1** and **IDE CDROM 1**, under **Advanced options**,
+For both **SCSI Disk 1** and **SCSI CDROM 1**, under **Advanced options**,
 change the **Cache mode** to **writethrough**.
 
 ### Network
@@ -134,14 +151,29 @@ and high colour depth graphics.
 The no-driver option is `cirrus` which will at least give you decent colour depth
 at low resolutions.
 
-### Optional: Floppy drive
+### Floppy drive
 
-If you want to install network support during setup, a floppy drive and image is
-the natural way to do this.
+You have to add a floppy drive so you can install the SCSI controller drivers
+during the initial OS installation. Add a drive and use the provided driver disk image.
 
 ----------------------
 During NT installation
 ----------------------
+
+### SCSI Drivers
+
+As soon as you see `Setup is inspecting your computer's hardware configuration...`,
+start mashing {{< kbd "F6" >}}. You'll then soon be prompted to specify additional
+devices by pressing {{< kbd "S" >}}.
+
+The option **Other** is already selected. Press {{< kbd "Enter" >}} twice and you
+should see **Symbios PCI SCSI High Performance Driver**. Press {{< kbd "Enter" >}}
+twice more to continue setup.
+
+{{< figure
+    src="images/nt4-setup-scsi.png"
+    alt="Adding the SCSI driver"
+>}}
 
 ### Network
 
@@ -169,6 +201,8 @@ Post-install
 Once your new NT install is up and running, there are few more things you'll want to do.
 
 ### ATA Driver
+
+> If both your HDD and CD-ROM are SCSI, skip this section.
 
 By default, your disk I/O will be running in PIO mode which is *terribly* slow.
 Unless you want your VM to feel like you're running on a vintage 486, you'll want
@@ -210,7 +244,7 @@ If you're using my driver disk, now you can enter `A:\vga` or `A:\vmvga` dependi
 on which adapter you're using.
 
 Note: If you're using `vga`, after rebooting your system your display will be set to
-640x480 which obscures the "OK" button in the **Display Properties** window.
+a resolution lower than 640x480 which obscures the "OK" button in the **Display Properties** window.
 If you tab through the 3 buttons at the bottom of this window, hit tab once more and then
 enter to apply the settings.
 
@@ -270,7 +304,7 @@ from this to focus on the parts that matter.
 
   <!-- You may encounter BSOD if emulating newer processors -->
   <cpu mode="custom" match="exact">
-    <model>pentium-v1</model>
+    <model>pentium</model>
   </cpu>
 
   <devices>
@@ -278,20 +312,28 @@ from this to focus on the parts that matter.
 
     <!-- Make sure to set "writethrough" for the cache -->
     <disk type="file" device="disk">
-      <driver name="qemu" type="qcow2" discard="unmap" cache="writethrough"/>
-      <source file="/tank/vm/images/nt4w7.qcow2"/>
-      <target dev="hda" bus="ide"/>
+      <driver name="qemu" type="qcow2" cache="writethrough" discard="unmap"/>
+      <source file="/esky/vm/images/nt4ts2.qcow2" index="2"/>
+      <backingStore/>
+      <target dev="sdb" bus="scsi"/>
+      <boot order="1"/>
+      <alias name="scsi0-0-1"/>
+      <address type="drive" controller="0" bus="0" target="0" unit="1"/>
     </disk>
 
     <!-- Make sure to set "writethrough" for the cache -->
     <disk type="file" device="cdrom">
       <driver name="qemu" type="raw" cache="writethrough"/>
-      <source file="/tank/library/virt/winnt40wks_sp1_en.iso"/>
-      <target dev="hdb" bus="ide"/>
+      <source file="/tank/library/virt/winnt40wks_sp1_en.iso" index="4"/>
+      <backingStore/>
+      <target dev="sda" bus="scsi"/>
       <readonly/>
+      <boot order="2"/>
+      <alias name="scsi0-0-0"/>
+      <address type="drive" controller="0" bus="0" target="0" unit="0"/>
     </disk>
 
-    <!-- Optional, but makes life easier to get drivers on the VM -->
+    <!-- Required during installation for SCSI drivers -->
     <disk type="file" device="floppy">
       <driver name="qemu" type="raw"/>
       <source file="/tank/library/virt/qemu-nt4.img"/>
@@ -314,6 +356,11 @@ from this to focus on the parts that matter.
     <video>
       <model type="vga"/>
     </video>
+
+    <!-- The SCSI must be `lsilogic`, which is the default -->
+    <controller type="scsi" index="0" model="lsilogic">
+      <address type="pci" domain="0x0000" bus="0x00" slot="0x05" function="0x0"/>
+    </controller>
   </devices>
 </domain>
 ```
