@@ -66,7 +66,7 @@ are available.
     class="float-right"
     thumb="300" >}}
 
-1. Open `msripv6-bin-1.4.exe` and extract the contents somewhere easy to remember like `C:\ipv6`
+1. Open `msripv6-bin-1.4.exe` and extract the contents somewhere like `C:\ipv6`
 2. Open **Control Panel**, **Network**, and the **Protocols** tab
 3. Click **Add...** and then **Have Disk...** and point it to `C:\ipv6`
 4. You'll pick **MSR IPv6 Protocol**, OK-out, and reboot.
@@ -115,6 +115,15 @@ but will actually prefer it!
 
 {{< figure src="images/firefox-nt4.png" alt="Screenshot of Firefox 2.0 using IPv6 on Windows NT 4.0" >}}
 
+If you're running Internet Explorer 4.0, you can manually upgrade `wininet.dll`
+to get IPv6 support:
+
+1. `rename c:\winnt\system32\wininet.dll wininet.old`
+2. `copy c:\ipv6\wininet.dll c:\winnt\system32\`
+3. Reboot
+
+{{< figure src="images/ipv6-nt4-ie4.png" alt="Screenshot of Internet Explorer 4 using IPv6 on Windows NT 4.0" >}}
+
 ### Stack support
 
 I've copied this list from the archived MSR IPv6 page:
@@ -143,19 +152,37 @@ I've copied this list from the archived MSR IPv6 page:
 Windows 2000
 --------------------------------------------------------------------------------
 
-The setup procedure for Windows 2000 is largely the same as with Windows NT 4, but
-a small tweak is required to get it to install on Service Pack 4.
+The IPv6 Technology Preview for Windows 2000 was designed for Service Pack 1 and Internet Explorer 5.0.
+The installer will error-out if you're on a newer service pack.
+You can patch the installer to force installation, but there's a caveat to doing this.
 
-1. Download [tpipv6-001205.exe](https://web.archive.org/web/20070129075223/http://download.microsoft.com/download/4/b/a/4ba76461-31be-49df-a2c6-7d0ee318d1e9/tpipv6-001205.exe)
-from the Internet Archive.
-2. Open it an extract to `C:\IPv6Kit`
+`wininet.dll` is the internet library for Internet Explorer and Outlook Express.
+The IPv6 Technology Preview includes a patched version of this file that includes IPv6 support.
+If you're running a version of Internet Explorer beyond 5.0 though, the installer
+will not overwrite the newer version of `wininet.dll` on your system and Internet Explorer
+will not get IPv6 support.
+
+Either way, download [tpipv6-001205.exe] from the Internet Archive.
+
+[tpipv6-001205.exe]: https://web.archive.org/web/20070129075223/http://download.microsoft.com/download/4/b/a/4ba76461-31be-49df-a2c6-7d0ee318d1e9/tpipv6-001205.exe
+
+### Step 1: Service Pack 1
+
+Open `tpipv6-001205.exe` and run the installer, reboot, continue to Step 2.
+
+### Step 1: Service Pack 2+
+
+2. Open `tpipv6-001205.exe` an extract to `C:\IPv6Kit`
 3. Open a command prompt and `cd C:\IPv6Kit`
 4. Run `setup -x` to extract the files instead of running setup, close the command prompt.
 5. Open `C:\IPv6Kit\files` and then open `hotfix.inf` in Notepad.
 6. On the line with `NTServicePackVersion=256`, change the `256` to `1024`, then save and close.
 7. Now, run `hotfix.exe` and reboot.
 
-After rebooting, you can now install IPv6.
+### Step 2
+
+After the reboot, you'll have to add the IPv6 protocol:
+
 1. **Start**, **Settings**, **Network and Dial-up Connections**.
 2. Open your adapter's properties.
 3. Click **Install...**, select **Protocol**, click **Add...**
@@ -170,6 +197,20 @@ After a reboot you can confirm that you have an address using `ipv6 if` at the C
 Like Windows NT 4, `ping6` and `tracert6` are installed.
 
 The last version of Firefox to work on Windows 2000 is [Firefox 12.0](https://ftp.mozilla.org/pub/firefox/releases/12.0/win32/).
+
+#### Internet Explorer
+
+If the installer didn't replace `wininet.dll` with its version, you'll have to do
+that manually to get IPv6 support. I've tested this with IE 5.0 and 5.5 SP2.
+
+```
+copy /y c:\ipv6kit\files\wininet.dll c:\winnt\system32\
+```
+
+Reboot, and you should be surfing the world wide web with IPv6.
+
+{{< figure src="images/ipv6-win2k-ie5.png" alt="Screenshot of Windows 2000 running IPv6 with Internet Explorer 5.0" >}}
+
 
 Windows XP
 --------------------------------------------------------------------------------
